@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,6 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
-
     .glow-ring::before {
       content: "";
       position: absolute;
@@ -23,7 +25,6 @@
       border: 8px solid #7A5CFA;
       z-index: -1;
     }
-
     @keyframes glow {
       0% { box-shadow: 0 0 10px rgba(122, 92, 250, 0.5); }
       50% { box-shadow: 0 0 20px rgba(122, 92, 250, 0.8); }
@@ -32,97 +33,278 @@
   </style>
 </head>
 <body class="bg-white text-gray-900 scroll-smooth">
-
   <!-- Header -->
-  <header class="fixed top-0 w-full z-50 bg-white/90 shadow-md px-10 py-4 flex justify-between items-center">
+  <header class="fixed top-0 w-full z-50 bg-white/90 shadow-md px-6 md:px-10 py-4 flex justify-between items-center">
     <a href="#home" class="text-xl font-semibold">Geah Sept Celo Igtanloc.</a>
     <nav>
-      <ul class="flex gap-8 text-base font-semibold">
-        <li><a href="#home" class="hover:text-purple-600 transition">Home</a></li>
-        <li><a href="#projects" class="hover:text-purple-600 transition">Projects</a></li>
-        <li><a href="#contact" class="hover:text-purple-600 transition">Contact Me</a></li>
+      <ul class="flex flex-wrap gap-4 md:gap-8 text-base font-semibold">
+        <li><a href="#home" class="hover:text-indigo-600 transition">Home</a></li>
+        <li><a href="#projects" class="hover:text-indigo-600 transition">Projects</a></li>
+        <li><a href="#skills" class="hover:text-indigo-600 transition">Skills</a></li>
+        <li><a href="#affiliations" class="hover:text-indigo-600 transition">Affiliations</a></li>
+        <li><a href="#research" class="hover:text-indigo-600 transition">Research</a></li>
+        <li><a href="#contact" class="hover:text-indigo-600 transition">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="pt-32 px-10 min-h-screen flex flex-col lg:flex-row items-center justify-between gap-10">
-    <div class="max-w-xl space-y-6">
-      <h1 class="text-5xl font-bold leading-tight">
-        <span class="text-purple-600">Geah Sept Celo</span> Igtanloc
-      </h1>
-      <p class="text-lg">
-        An aspiring software engineer passionate about building innovative, user-friendly solutions and continuously learning to create impactful digital experiences.
-      </p>
-      <div class="flex gap-4 mt-4">
-        <a href="#projects" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-transparent border-2 border-purple-600 hover:text-purple-600 transition">Projects</a>
-        <a href="#contact" class="bg-transparent border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition">Contact Me</a>
-      </div>
-      <div class="flex gap-4 mt-6">
-        <a href="https://www.linkedin.com/in/geah-sept-igtanloc-071b57355/" target="_blank" class="bg-purple-600 text-white w-10 h-10 flex items-center justify-center rounded-full shadow hover:scale-110 transition">
-          <i class="ph-bold ph-linkedin-logo"></i>
+  <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-32">
+    <div class="md:w-1/2 space-y-6">
+      <h2 class="text-2xl font-light">Hello, I'm</h2>
+      <h1 class="text-4xl md:text-6xl font-bold">Geah Sept Celo <span class="text-indigo-600">Igtanloc</span></h1>
+      <p class="text-lg md:text-xl">Aspiring Software Engineer passionate about technology and design.</p>
+      <!-- Social Links -->
+    <div class="flex gap-6 mt-8">
+        <a href="https://www.linkedin.com/in/geah-sept-igtanloc-071b57355/" target="_blank" class="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition">
+            <i class="ph-bold ph-linkedin-logo text-2xl"></i>
         </a>
-        <a href="https://github.com/geahseptigtanloc" target="_blank" class="bg-purple-600 text-white w-10 h-10 flex items-center justify-center rounded-full shadow hover:scale-110 transition">
-          <i class="ph-bold ph-github-logo"></i>
+        <a href="https://github.com/geahseptigtanloc" target="_blank" class="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition">
+            <i class="ph-bold ph-github-logo text-2xl"></i>
         </a>
-      </div>
     </div>
-    <div class="relative w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] rounded-full glow-ring flex items-center justify-center overflow-hidden">
-      <img src="./Image.jpeg" alt="Profile Image" class="w-full h-full rounded-full object-cover z-10" />
+      <!-- Education Section -->
+      <div class="bg-indigo-50 border-l-4 border-indigo-600 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-indigo-600 mb-4">Education</h2>
+        <ul class="space-y-2">
+            <li>
+                <p class="text-lg font-semibold">Bachelor of Science in Information Technology</p>
+                <p class="text-gray-700">Ateneo de Davao University | 2021 - Present</p>
+            </li>
+            <li>
+                <p class="text-lg font-semibold">Senior High School - STEM Strand</p>
+                <p class="text-gray-700">Holy Cross of Davao College | 2019 - 2021</p>
+            </li>
+            <li>
+                <p class="text-lg font-semibold">Junior High School</p>
+                <p class="text-gray-700">Holy Cross of Davao College | 2015 - 2019</p>
+            </li>
+        </ul>
     </div>
-  </section>
+</div>
+<!-- Profile Image inside circle -->
+<div class="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full border-[12px] border-indigo-600 shadow-xl overflow-hidden">
+    <img src="./Image.jpeg" alt="Profile" class="w-full h-full object-cover rounded-full z-10" />
+</div>
+</section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="px-10 py-20 bg-gray-50">
-    <h1 class="text-4xl font-bold mb-10 text-center">Projects</h1>
-    <div class="grid gap-8 md:grid-cols-3">
-      <!-- Project 1 -->
-      <div class="bg-white border-2 border-purple-600 rounded-xl p-6 hover:scale-105 transition hover:bg-purple-600 hover:text-white shadow">
-        <h3 class="text-xl font-bold mb-2">Project 1: UniVents</h3>
-        <p>A university event management system to help students join and get reminders for events.</p>
-        <img src="./UniVents.png" alt="UniVentd Project" class="mt-4 rounded-md" />
+    <!-- Projects Section -->
+    <section class="px-8 md:px-32 py-20" id="projects">
+        <h2 class="text-3xl font-bold mb-8">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border-2 border-indigo-600 rounded-lg p-4 hover:scale-105 transition shadow-md bg-white">
+                <h3 class="text-xl font-semibold mb-2">Project 1: UniVents</h3>
+                <p class="mb-2">University event management system to help students join and get reminders.</p>
+                <img src="./UniVents.png" alt="UniVents" class="rounded-md" />
+            </div>
+            <div class="border-2 border-indigo-600 rounded-lg p-4 hover:scale-105 transition shadow-md bg-white">
+                <h3 class="text-xl font-semibold mb-2">Project 2: StarBuko POS</h3>
+                <p class="mb-2">Point of Sale system for managing coffee shop transactions and orders.</p>
+                <img src="./StarBuko.png" alt="StarBuko" class="rounded-md" />
+            </div>
+            <div class="border-2 border-indigo-600 rounded-lg p-4 hover:scale-105 transition shadow-md bg-white">
+                <h3 class="text-xl font-semibold mb-2">Project 3: AdDU Cart</h3>
+                <p class="mb-2">E-commerce platform for browsing and buying campus-based products.</p>
+                <img src="./AdDU Cart.png" alt="AdDU Cart" class="rounded-md" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="px-8 md:px-32 py-20 bg-gray-100" id="skills">
+        <h2 class="text-3xl font-bold mb-8">Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
+                <h3 class="text-xl font-semibold">HTML & CSS</h3>
+                <p>Strong understanding of responsive design and web layout.</p>
+            </div>
+            <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
+                <h3 class="text-xl font-semibold">JavaScript</h3>
+                <p>Experience with dynamic interfaces and interactivity.</p>
+            </div>
+            <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
+                <h3 class="text-xl font-semibold">C# & Windows Forms</h3>
+                <p>Used in desktop application development (e.g., POS systems).</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Affiliations Section -->
+<section id="affiliations" class="px-6 md:px-20 py-20 bg-gray-100">
+    <h1 class="text-3xl font-bold text-center mb-12">Affiliations</h1>
+    <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <!-- Flashcard 1 -->
+        <div class="bg-white border-l-4 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
+            <h2 class="text-xl font-semibold">Ateneo de Davao University</h2>
+            <p>BS in Computer Science, Class of 2025</p>
+        </div>
+        <!-- Flashcard 2 -->
+        <div class="bg-white border-l-4 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
+            <h2 class="text-xl font-semibold">Tech Club Member</h2>
+            <p>Actively participated in tech workshops and hackathons.</p>
+        </div>
+        <!-- Flashcard 3 -->
+        <div class="bg-white border-l-4 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
+            <h2 class="text-xl font-semibold">Google Developer Student Club</h2>
+            <p>Collaborated in community-driven projects and events.</p>
+        </div>
+        <!-- Flashcard 4 -->
+        <div class="bg-white border-l-4 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
+            <h2 class="text-xl font-semibold">HackforGov Hackathon 2024</h2>
+            <p>Participated in a national hackathon for government innovation.</p>
+        </div>
+        <!-- Flashcard 5 -->
+        <div class="bg-white border-l-4 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
+            <h2 class="text-xl font-semibold">Women Who Code</h2>
+            <p>Engaged in initiatives for empowering women in tech.</p>
+        </div>
+        <!-- Flashcard 6 -->
+        <div class="bg-white border-l-4 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
+            <h2 class="text-xl font-semibold">Microsoft Learn Student Ambassador</h2>
+            <p>Engaged in learning and sharing Microsoft technologies with peers.</p>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Research Section -->
+  <section id="research" class="px-6 md:px-20 py-20 bg-gray-50">
+    <h1 class="text-3xl font-bold text-center mb-12">Research</h1>
+    <div class="space-y-6">
+      <div class="p-6 bg-white border-l-4 border-indigo-600 rounded shadow">
+        <h2 class="text-xl font-semibold">Smart Waste Monitoring System</h2>
+        <p>Developed an IoT-based system to monitor waste bins using sensors and mobile app integration.</p>
       </div>
-
-      <!-- Project 2 -->
-      <div class="bg-white border-2 border-purple-600 rounded-xl p-6 hover:scale-105 transition hover:bg-purple-600 hover:text-white shadow">
-        <h3 class="text-xl font-bold mb-2">Project 2: StarBuko POS</h3>
-        <p>A Point of Sale system designed for managing orders and transactions in a coffee shop setting.</p>
-        <img src="./StarBuko.png" alt="StarBuko POS Project" class="mt-4 rounded-md" />
-      </div>
-
-      <!-- Project 3 -->
-      <div class="bg-white border-2 border-purple-600 rounded-xl p-6 hover:scale-105 transition hover:bg-purple-600 hover:text-white shadow">
-        <h3 class="text-xl font-bold mb-2">Project 3: AdDU Cart</h3>
-        <p>An online platform that allows users to browse, order, and purchase products within the university.</p>
-        <img src="./AdDU Cart.png" alt="AdDU Cart Project" class="mt-4 rounded-md" />
+      <div class="p-6 bg-white border-l-4 border-indigo-600 rounded shadow">
+        <h2 class="text-xl font-semibold">AI for Student Performance Prediction</h2>
+        <p>Explored machine learning algorithms to analyze and predict academic performance.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="px-10 py-20">
-    <h1 class="text-4xl font-bold mb-6 text-center">Contact Me</h1>
-    <p class="text-center mb-10">Fill out the form below to get in touch with me.</p>
-    <div class="max-w-2xl mx-auto">
-      <form action="#" method="post" class="space-y-6">
-        <div>
-          <label for="name" class="block font-semibold mb-1">Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your full name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500" />
-        </div>
-        <div>
-          <label for="email" class="block font-semibold mb-1">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email address" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500" />
-        </div>
-        <div>
-          <label for="message" class="block font-semibold mb-1">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-        </div>
-        <button type="submit" class="bg-purple-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-purple-700 transition w-full sm:w-auto">
-          Send Message
-        </button>
-      </form>
-    </div>
+  <section id="contact" class="px-6 md:px-20 py-20">
+    <h1 class="text-3xl font-bold text-center mb-12">Contact</h1>
+    <form class="max-w-3xl mx-auto space-y-6">
+      <input type="text" placeholder="Your Name" class="w-full border-2 border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+      <input type="email" placeholder="Your Email" class="w-full border-2 border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+      <textarea placeholder="Your Message" rows="5" class="w-full border-2 border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600"></textarea>
+      <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">Send Message</button>
+    </form>
   </section>
-
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
