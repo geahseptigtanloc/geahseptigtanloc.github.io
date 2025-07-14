@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Geah Sept Igtanloc - Portfolio</title>
+  <meta name="description" content="Geah Sept Igtanloc - 2nd-year BSIT student at Ateneo de Davao University, aspiring software engineer passionate about technology and design. View my projects, skills, and research work." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/phosphor-icons"></script>
   <style>
@@ -27,50 +31,118 @@
       50% { box-shadow: 0 0 20px rgba(122, 92, 250, 0.8); }
       100% { box-shadow: 0 0 10px rgba(122, 92, 250, 0.5); }
     }
+    .loading {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .skill-bar {
+      background: linear-gradient(90deg, #4F46E5 0%, #7C3AED 100%);
+      height: 8px;
+      border-radius: 4px;
+      transition: width 1s ease-in-out;
+    }
+    .project-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .social-link {
+      position: relative;
+      overflow: hidden;
+    }
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    .social-link:hover::before {
+      left: 100%;
+    }
+    .form-loading {
+      display: none;
+    }
+    .form-success {
+      display: none;
+      color: #10B981;
+      font-weight: 600;
+    }
+    .form-error {
+      display: none;
+      color: #EF4444;
+      font-weight: 600;
+    }
+    .placeholder-image {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900 scroll-smooth">
   <!-- Header -->
-  <header class="fixed top-0 w-full z-50 bg-white/90 shadow-md px-6 md:px-10 py-4 flex justify-between items-center">
+  <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-md px-6 md:px-10 py-4 flex justify-between items-center">
     <a href="#home" class="text-xl font-semibold">Geah Sept Igtanloc.</a>
     <nav>
       <ul class="flex flex-wrap gap-4 md:gap-8 text-base font-semibold">
         <li><a href="#home" class="hover:text-indigo-600 transition">Home</a></li>
+        <li><a href="#about" class="hover:text-indigo-600 transition">About</a></li>
         <li><a href="#projects" class="hover:text-indigo-600 transition">Projects</a></li>
         <li><a href="#skills" class="hover:text-indigo-600 transition">Skills</a></li>
         <li><a href="#affiliations" class="hover:text-indigo-600 transition">Affiliations</a></li>
         <li><a href="#research" class="hover:text-indigo-600 transition">Research</a></li>
-        <li><a href="#contact" class="hover:text-indigo-600 transition">Contact Me</a></li>
+        <li><a href="#contact" class="hover:text-indigo-600 transition">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-32">
-    <div class="md:w-1/2 space-y-6">
+  <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-32 pb-20">
+    <div class="md:w-1/2 space-y-8">
       <h2 class="text-3xl font-light">Hello, I'm</h2>
       <h1 class="text-4xl md:text-6xl font-bold">Geah Sept <span class="text-indigo-600">Igtanloc</span></h1>
-      <p class="text-lg md:text-xl">A 2nd-year BSIT student, aspiring to be a software engineer, passionate about technology and design.</p>
-      <!-- Social Links -->
+      <p class="text-lg md:text-xl text-gray-600 leading-relaxed">A 2nd-year BSIT student at Ateneo de Davao University, aspiring to be a software engineer, passionate about technology and design.</p>
+      
+      <!-- Enhanced Social Links -->
       <div class="flex gap-6 mt-8">
-        <a href="https://www.linkedin.com/in/geah-sept-igtanloc-071b57355/" target="_blank" class="w-16 h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition">
-         <i class="ph-bold ph-linkedin-logo text-4xl"></i>
+        <a href="https://www.linkedin.com/in/geah-sept-igtanloc-071b57355/" target="_blank" 
+           class="social-link w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg">
+         <i class="ph-bold ph-linkedin-logo text-2xl"></i>
         </a>
-        <a href="https://github.com/geahseptigtanloc" target="_blank" class="w-16 h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition">
-         <i class="ph-bold ph-github-logo text-4xl"></i>
-      </a>
-      <a href="https://www.instagram.com/gaesteria/" target="_blank" class="w-16 h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition">
-        <i class="ph-bold ph-instagram-logo text-4xl"></i>
-      </a>
-    </div>
+        <a href="https://github.com/geahseptigtanloc" target="_blank" 
+           class="social-link w-16 h-16 bg-gradient-to-br from-gray-800 to-gray-600 text-white rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg">
+         <i class="ph-bold ph-github-logo text-2xl"></i>
+        </a>
+        <a href="https://www.instagram.com/gaesteria/" target="_blank" 
+           class="social-link w-16 h-16 bg-gradient-to-br from-pink-600 to-orange-500 text-white rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg">
+          <i class="ph-bold ph-instagram-logo text-2xl"></i>
+        </a>
+      </div>
 
       <!-- Education Section -->
-      <div class="bg-indigo-50 border-l-4 border-indigo-600 p-6 rounded-lg shadow-md">
-        <h2 class="text-4xl font-bold text-indigo-600 mb-4">Education</h2>
-        <ul class="space-y-2">
+      <div class="bg-indigo-50 border-l-4 border-indigo-600 p-6 rounded-lg shadow-md mt-8">
+        <h2 class="text-2xl font-bold text-indigo-600 mb-4">Education</h2>
+        <ul class="space-y-4">
             <li>
                 <p class="text-lg font-semibold">Bachelor of Science in Information Technology</p>
                 <p class="text-gray-700">Ateneo de Davao University | 2023 - Present</p>
+                <p class="text-sm text-indigo-600 font-medium">President's Lister & Dean's List</p>
             </li>
             <li>
                 <p class="text-lg font-semibold">Senior High School - STEM Strand</p>
@@ -81,258 +153,530 @@
                 <p class="text-gray-700">Tagum City National High School | 2017 - 2021</p>
             </li>
         </ul>
+      </div>
     </div>
-</div>
-<!-- Profile Image inside circle -->
-<div class="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full border-[12px] border-indigo-600 shadow-xl overflow-hidden">
-    <img src="./Image.jpeg" alt="Profile" class="w-full h-full object-cover rounded-full z-10" />
-</div>
-</section>
-
-<!-- Projects Section -->
-<section class="px-8 md:px-32 py-20" id="projects">
-  <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12 animate-pulse">Projects</h1>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="border-2 border-indigo-600 rounded-lg p-4 hover:scale-105 transition shadow-md bg-white"> 
-      <h2 class="text-xl font-semibold mb-2 text-center">Project 1: UniVents</h2>
-      <p class="mb-2 text-center">University event management system to help students join and get reminders.</p>
-      <img src="./UniVents.png" alt="UniVents" class="rounded-md mx-auto block w-3/4" />
-  </div>
-  
-      <div class="border-2 border-indigo-600 rounded-lg p-4 hover:scale-105 transition shadow-md bg-white">
-          <h2 class="text-xl font-semibold mb-2 text-center">Project 2: StarBuko POS</h2>
-          <p class="mb-2 text-center">Point of Sale system for managing coffee shop transactions and orders.</p>
-          <img src="./StarBuko.png" alt="StarBuko" class="rounded-md mx-auto block w-3/4" />
+    
+    <!-- Profile Image -->
+    <div class="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full border-[12px] border-indigo-600 shadow-2xl overflow-hidden mt-8 md:mt-0">
+      <div class="placeholder-image w-full h-full rounded-full">
+        Profile Image
       </div>
-      <div class="border-2 border-indigo-600 rounded-lg p-4 hover:scale-105 transition shadow-md bg-white">
-          <h2 class="text-xl font-semibold mb-2 text-center">Project 3: AdDU Cart</h2>
-          <p class="mb-2 text-center">E-commerce platform for browsing and buying campus-based products.</p>
-          <img src="./AdDU Cart.png" alt="AdDU Cart" class="rounded-md mx-auto block w-3/4" />
-      </div>
-  </div>
-</section>
-
-<!-- Skills Section -->
-<section class="px-8 md:px-32 py-20 bg-indigo-100" id="skills">
-  <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12 animate-pulse">Skills</h1>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
-          <h3 class="text-xl font-semibold">HTML & CSS</h3>
-          <p>Strong understanding of responsive design and web layout.</p>
-      </div>
-      <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
-          <h3 class="text-xl font-semibold">JavaScript</h3>
-          <p>Experience with dynamic interfaces and interactivity.</p>
-      </div>
-      <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
-          <h3 class="text-xl font-semibold">C# & Windows Forms</h3>
-          <p>Used in desktop application development (e.g., POS systems).</p>
-      </div>
-      <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
-          <h3 class="text-xl font-semibold">Java</h3>
-          <p>Object-oriented programming for backend systems and desktop apps.</p>
-      </div>
-      <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
-          <h3 class="text-xl font-semibold">Python</h3>
-          <p>Versatile in scripting, data analysis, and backend development.</p>
-      </div>
-      <div class="bg-white hover:bg-indigo-600 hover:text-white transition rounded-lg shadow-lg p-6 cursor-pointer">
-          <h3 class="text-xl font-semibold">Figma</h3>
-          <p>UI/UX design skills for prototyping and interface mockups.</p>
-      </div>
-  </div>
-</section>
-
-<!-- Affiliations Section -->
-<section id="affiliations" class="px-6 md:px-20 py-20 bg-indigo-60">
-  <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12 animate-pulse">Affiliations</h1>
-  <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">Ateneo de Davao University</h2>
-          <p>BS in Information Technology | President's Lister & Dean’s List | Class of 2025</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">CSSEC Wizards – AdDU</h2>
-          <p>Merchandise Head | Managed logistics and branding for U-Fest 2024 & IT Week 2025 (Core TWG).</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">BAHAGHARI-AdDU</h2>
-          <p>Member (2025–Present) | Advocacy for inclusivity and diversity in the Ateneo community.</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">Ateneo Blue Knight Parliament</h2>
-          <p>Member (2025–Present) | Student governance and policy engagement.</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">Philippine Society of Youth Science Clubs</h2>
-          <p>Member (2020–2021) | Active service and science outreach engagement.</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">Peer Tutor - AdDU</h2>
-          <p>Provided academic tutoring in IT-related subjects (2023–2024).</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">ABAKADA: Lakbay-Aral</h2>
-          <p>Participant (2024) | Joined the “Hike for a Cause” to support Mindanao education efforts.</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">Social Love Sunday - ASF 1 & 2</h2>
-          <p>Volunteer (2023–2024) | Contributed to agri-community service and family support in Davao.</p>
-      </div>
-
-      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border-indigo-800">
-          <h2 class="text-xl font-semibold">NSTP Environmental Initiatives</h2>
-          <p>Participated in mangrove planting and emergency response seminars (2024).</p>
-      </div>
-  </div>
-</section>
-
-<!-- Research Section --> 
-<section id="research" class="px-6 md:px-20 py-20 bg-indigo-100">
-  <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12 animate-pulse">Research</h1>
-  <div class="space-y-6">
-    <div class="p-6 bg-white border-l-4 border-indigo-600 rounded shadow">
-      <h2 class="text-xl font-semibold text-indigo-600">Assessing the Awareness of Small Businesses in Davao City Regarding the Potential Threats of AI in Cybersecurity</h2>
-      <p>This study investigates how knowledgeable small business owners are about the cybersecurity risks associated with emerging AI technologies. It aims to raise awareness and promote adaptive security strategies within local enterprises.</p>
     </div>
-    <div class="p-6 bg-white border-l-4 border-indigo-600 rounded shadow">
-      <h2 class="text-xl font-semibold text-indigo-600">Eco-Friendly on a Budget: Efficiency of Banana for Fermented Fruit Juice as an Organic Fertilizer on the Growth of Brassica rapa subsp. chinensis (Petchay)</h2>
-      <p>This research explores the effectiveness of banana-based fermented fruit juice as an affordable and sustainable organic fertilizer, focusing on its impact on the growth of Petchay plants.</p>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="px-6 md:px-20 py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12">About Me</h1>
+      <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+        <div class="prose prose-lg max-w-none">
+          <p class="text-gray-700 leading-relaxed mb-6">
+            I'm a dedicated and passionate Information Technology student at Ateneo de Davao University, currently in my second year of pursuing a Bachelor of Science in Information Technology. My journey in tech began with a curiosity about how software shapes our daily lives, and it has evolved into a deep commitment to becoming a skilled software engineer.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Throughout my academic journey, I've maintained excellence in my studies, consistently earning spots on the President's List and Dean's List. This academic success reflects my dedication to learning and my ability to balance multiple responsibilities while maintaining high standards.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Beyond academics, I actively engage in various organizations and volunteer work. As the Merchandise Head for CSSEC Wizards, I've honed my leadership and organizational skills while contributing to major events like U-Fest 2024 and IT Week 2025. My involvement in BAHAGHARI-AdDU and the Ateneo Blue Knight Parliament demonstrates my commitment to inclusivity, diversity, and student governance.
+          </p>
+          <p class="text-gray-700 leading-relaxed">
+            My technical interests span web development, desktop applications, and UI/UX design. I enjoy creating solutions that not only function well but also provide excellent user experiences. When I'm not coding, you'll find me exploring new technologies, contributing to community service projects, or working on research that bridges technology and social impact.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="px-6 md:px-20 py-20">
-  <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12 animate-pulse">Contact Me</h1>
-  <form class="max-w-3xl mx-auto space-y-6">
-    <input type="text" placeholder="Your Name" class="w-full border-2 border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" />
-    <input type="email" placeholder="Your Email" class="w-full border-2 border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" />
-    <textarea placeholder="Your Message" rows="5" class="w-full border-2 border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600"></textarea>
-    <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">Send Message</button>
-  </form>
-</section>
+  <!-- Projects Section -->
+  <section class="px-6 md:px-20 py-20" id="projects">
+    <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12">Projects</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="project-card border-2 border-indigo-200 rounded-xl p-6 shadow-lg"> 
+        <div class="placeholder-image w-full h-48 rounded-lg mb-4">
+          UniVents
+        </div>
+        <h2 class="text-xl font-bold mb-3 text-gray-800">UniVents</h2>
+        <p class="text-gray-600 mb-4">University event management system designed to help students discover, join, and receive reminders for campus events. Features include event scheduling, RSVP management, and automated notifications.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">JavaScript</span>
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">HTML/CSS</span>
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">MySQL</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">View Demo</button>
+          <button class="flex-1 border-2 border-indigo-600 text-indigo-600 py-2 px-4 rounded-lg hover:bg-indigo-50 transition">Source Code</button>
+        </div>
+      </div>
+      
+      <div class="project-card border-2 border-indigo-200 rounded-xl p-6 shadow-lg">
+        <div class="placeholder-image w-full h-48 rounded-lg mb-4">
+          StarBuko POS
+        </div>
+        <h2 class="text-xl font-bold mb-3 text-gray-800">StarBuko POS</h2>
+        <p class="text-gray-600 mb-4">Comprehensive Point of Sale system for coffee shops featuring order management, inventory tracking, sales reporting, and customer management. Built with modern desktop application architecture.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">C#</span>
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Windows Forms</span>
+          <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">SQL Server</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">View Demo</button>
+          <button class="flex-1 border-2 border-indigo-600 text-indigo-600 py-2 px-4 rounded-lg hover:bg-indigo-50 transition">Source Code</button>
+        </div>
+      </div>
+      
+      <div class="project-card border-2 border-indigo-200 rounded-xl p-6 shadow-lg">
+        <div class="placeholder-image w-full h-48 rounded-lg mb-4">
+          AdDU Cart
+        </div>
+        <h2 class="text-xl font-bold mb-3 text-gray-800">AdDU Cart</h2>
+        <p class="text-gray-600 mb-4">Campus-focused e-commerce platform enabling students to browse and purchase university-related products. Features include product catalog, shopping cart, user authentication, and order tracking.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">JavaScript</span>
+          <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">PHP</span>
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Bootstrap</span>
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">MySQL</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="flex-1 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">View Demo</button>
+          <button class="flex-1 border-2 border-indigo-600 text-indigo-600 py-2 px-4 rounded-lg hover:bg-indigo-50 transition">Source Code</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+  <!-- Skills Section -->
+  <section class="px-6 md:px-20 py-20 bg-gray-50" id="skills">
+    <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12">Skills & Expertise</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white hover:shadow-xl transition-all duration-300 rounded-xl p-6 border border-gray-200">
+        <div class="flex items-center mb-4">
+          <i class="ph-bold ph-code text-3xl text-indigo-600 mr-3"></i>
+          <h3 class="text-xl font-bold text-gray-800">HTML & CSS</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Strong foundation in responsive web design, modern CSS techniques, and cross-browser compatibility. Experience with Flexbox, Grid, and CSS animations.</p>
+        <div class="mb-2">
+          <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+            <span>Proficiency</span>
+            <span>90%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="skill-bar w-[90%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white hover:shadow-xl transition-all duration-300 rounded-xl p-6 border border-gray-200">
+        <div class="flex items-center mb-4">
+          <i class="ph-bold ph-lightning text-3xl text-yellow-500 mr-3"></i>
+          <h3 class="text-xl font-bold text-gray-800">JavaScript</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Proficient in modern JavaScript (ES6+), DOM manipulation, event handling, and asynchronous programming. Experience with interactive web applications.</p>
+        <div class="mb-2">
+          <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+            <span>Proficiency</span>
+            <span>85%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="skill-bar w-[85%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white hover:shadow-xl transition-all duration-300 rounded-xl p-6 border border-gray-200">
+        <div class="flex items-center mb-4">
+          <i class="ph-bold ph-desktop text-3xl text-blue-600 mr-3"></i>
+          <h3 class="text-xl font-bold text-gray-800">C# & Windows Forms</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Skilled in desktop application development using C# and Windows Forms. Experience with database integration and event-driven programming.</p>
+        <div class="mb-2">
+          <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+            <span>Proficiency</span>
+            <span>80%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="skill-bar w-[80%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white hover:shadow-xl transition-all duration-300 rounded-xl p-6 border border-gray-200">
+        <div class="flex items-center mb-4">
+          <i class="ph-bold ph-coffee text-3xl text-orange-600 mr-3"></i>
+          <h3 class="text-xl font-bold text-gray-800">Java</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Strong foundation in object-oriented programming principles, data structures, and algorithms. Experience with desktop applications and backend development.</p>
+        <div class="mb-2">
+          <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+            <span>Proficiency</span>
+            <span>75%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="skill-bar w-[75%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white hover:shadow-xl transition-all duration-300 rounded-xl p-6 border border-gray-200">
+        <div class="flex items-center mb-4">
+          <i class="ph-bold ph-snake text-3xl text-green-600 mr-3"></i>
+          <h3 class="text-xl font-bold text-gray-800">Python</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Versatile programming skills in scripting, data analysis, and automation. Experience with libraries like pandas, numpy, and basic machine learning concepts.</p>
+        <div class="mb-2">
+          <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+            <span>Proficiency</span>
+            <span>70%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="skill-bar w-[70%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white hover:shadow-xl transition-all duration-300 rounded-xl p-6 border border-gray-200">
+        <div class="flex items-center mb-4">
+          <i class="ph-bold ph-figma-logo text-3xl text-purple-600 mr-3"></i>
+          <h3 class="text-xl font-bold text-gray-800">Figma</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Proficient in UI/UX design, prototyping, and collaborative design workflows. Experience creating wireframes, mockups, and design systems.</p>
+        <div class="mb-2">
+          <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
+            <span>Proficiency</span>
+            <span>85%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="skill-bar w-[85%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Affiliations Section -->
+  <section id="affiliations" class="px-6 md:px-20 py-20">
+    <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12">Affiliations & Leadership</h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Ateneo de Davao University</h2>
+        <p class="text-gray-600 mb-2">BS in Information Technology | Class of 2025</p>
+        <p class="text-indigo-600 font-semibold">President's Lister & Dean's List</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">CSSEC Wizards – AdDU</h2>
+        <p class="text-gray-600 mb-2">Merchandise Head</p>
+        <p class="text-sm text-gray-500">Managed logistics and branding for U-Fest 2024 & IT Week 2025 (Core TWG)</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">BAHAGHARI-AdDU</h2>
+        <p class="text-gray-600 mb-2">Member (2025–Present)</p>
+        <p class="text-sm text-gray-500">Advocacy for inclusivity and diversity in the Ateneo community</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Ateneo Blue Knight Parliament</h2>
+        <p class="text-gray-600 mb-2">Member (2025–Present)</p>
+        <p class="text-sm text-gray-500">Student governance and policy engagement</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Philippine Society of Youth Science Clubs</h2>
+        <p class="text-gray-600 mb-2">Member (2020–2021)</p>
+        <p class="text-sm text-gray-500">Active service and science outreach engagement</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Peer Tutor - AdDU</h2>
+        <p class="text-gray-600 mb-2">Academic Support (2023–2024)</p>
+        <p class="text-sm text-gray-500">Provided academic tutoring in IT-related subjects</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">ABAKADA: Lakbay-Aral</h2>
+        <p class="text-gray-600 mb-2">Participant (2024)</p>
+        <p class="text-sm text-gray-500">Joined "Hike for a Cause" to support Mindanao education efforts</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">Social Love Sunday - ASF</h2>
+        <p class="text-gray-600 mb-2">Volunteer (2023–2024)</p>
+        <p class="text-sm text-gray-500">Contributed to agri-community service and family support in Davao</p>
+      </div>
+
+      <div class="bg-white border-l-8 border-indigo-600 p-6 shadow-lg rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <h2 class="text-xl font-bold text-gray-800 mb-2">NSTP Environmental Initiatives</h2>
+        <p class="text-gray-600 mb-2">Participant (2024)</p>
+        <p class="text-sm text-gray-500">Mangrove planting and emergency response seminars</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section --> 
+  <section id="research" class="px-6 md:px-20 py-20 bg-gray-50">
+    <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12">Research & Publications</h1>
+    <div class="space-y-8 max-w-4xl mx-auto">
+      <div class="p-8 bg-white border-l-4 border-indigo-600 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold text-indigo-600 mb-4">Assessing the Awareness of Small Businesses in Davao City Regarding the Potential Threats of AI in Cybersecurity</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">This comprehensive study investigates the current level of cybersecurity awareness among small business owners in Davao City, specifically focusing on emerging threats posed by artificial intelligence technologies. The research aims to bridge the knowledge gap between rapid AI advancement and cybersecurity preparedness in the local business community.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Cybersecurity</span>
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">AI Research</span>
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Business Analysis</span>
+        </div>
+        <div class="flex gap-4">
+          <span class="text-sm text-gray-500">Status: In Progress</span>
+          <span class="text-sm text-gray-500">Expected: 2025</span>
+        </div>
+      </div>
+      
+      <div class="p-8 bg-white border-l-4 border-green-600 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold text-green-600 mb-4">Eco-Friendly on a Budget: Efficiency of Banana for Fermented Fruit Juice as an Organic Fertilizer on the Growth of Brassica rapa subsp. chinensis (Petchay)</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">This innovative research explores sustainable agricultural practices by investigating the effectiveness of banana-based fermented fruit juice as an affordable and environmentally friendly organic fertilizer. The study focuses on optimizing plant growth while promoting cost-effective farming solutions for local communities.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Sustainable Agriculture</span>
+          <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">Environmental Science</span>
+          <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">Organic Farming</span>
+        </div>
+        <div class="flex gap-4">
+          <span class="text-sm text-gray-500">Status: Completed</span>
+          <span class="text-sm text-gray-500">Year: 2024</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="px-6 md:px-20 py-20">
+    <h1 class="text-4xl font-extrabold text-indigo-600 text-center mb-12">Get In Touch</h1>
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+        <p class="text-gray-600 text-center mb-8">I'm always interested in discussing new opportunities, collaborations, or just having a chat about technology and innovation. Feel free to reach out!</p>
+        
+        <form id="contactForm" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors" 
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors" 
+                placeholder="Enter your email address"
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              required 
+              class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors" 
+              placeholder="What's this about?"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              required 
+              class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors resize-none" 
+              placeholder="Tell me about your project or idea..."
+            ></textarea>
+          </div>
+          
+          <div class="text-center">
+            <button 
+              type="submit" 
+              class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <span class="form-text">Send Message</span>
+              <span class="form-loading">
+                <i class="ph-bold ph-spinner animate-spin mr-2"></i>
+                Sending...
+              </span>
+            </button>
+          </div>
+          
+          <div class="text-center">
+            <p class="form-success">✓ Thank you! Your message has been sent successfully.</p>
+            <p class="form-error">✗ Something went wrong. Please try again later.</p>
+          </div>
+        </form>
+        
+        <!-- Contact Information -->
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <i class="ph-bold ph-envelope text-3xl text-indigo-600 mb-2"></i>
+              <h3 class="font-semibold text-gray-800">Email</h3>
+              <p class="text-gray-600">Available upon request</p>
+            </div>
+            <div>
+              <i class="ph-bold ph-map-pin text-3xl text-indigo-600 mb-2"></i>
+              <h3 class="font-semibold text-gray-800">Location</h3>
+              <p class="text-gray-600">Davao City, Philippines</p>
+            </div>
+            <div>
+              <i class="ph-bold ph-phone text-3xl text-indigo-600 mb-2"></i>
+              <h3 class="font-semibold text-gray-800">Phone</h3>
+              <p class="text-gray-600">Available upon request</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="px-6 md:px-20">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h3 class="text-xl font-bold mb-2">Geah Sept Igtanloc</h3>
+          <p class="text-gray-400">Aspiring Software Engineer | BSIT Student</p>
+        </div>
+        
+        <div class="flex gap-4">
+          <a href="https://www.linkedin.com/in/geah-sept-igtanloc-071b57355/" target="_blank" 
+             class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center hover:bg-indigo-700 transition">
+            <i class="ph-bold ph-linkedin-logo"></i>
+          </a>
+          <a href="https://github.com/geahseptigtanloc" target="_blank" 
+             class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center hover:bg-indigo-700 transition">
+            <i class="ph-bold ph-github-logo"></i>
+          </a>
+          <a href="https://www.instagram.com/gaesteria/" target="_blank" 
+             class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center hover:bg-indigo-700 transition">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+        <p>&copy; 2025 Geah Sept Igtanloc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Loading animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('loaded');
+          }
+        });
+      });
+      
+      sections.forEach(section => {
+        section.classList.add('loading');
+        observer.observe(section);
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Contact form handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formText = document.querySelector('.form-text');
+      const formLoading = document.querySelector('.form-loading');
+      const formSuccess = document.querySelector('.form-success');
+      const formError = document.querySelector('.form-error');
+      
+      // Show loading state
+      formText.style.display = 'none';
+      formLoading.style.display = 'inline-flex';
+      formSuccess.style.display = 'none';
+      formError.style.display = 'none';
+      
+      // Simulate form submission
+      setTimeout(() => {
+        // Hide loading state
+        formLoading.style.display = 'none';
+        formText.style.display = 'inline';
+        
+        // Show success message
+        formSuccess.style.display = 'block';
+        
+        // Reset form
+        this.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          formSuccess.style.display = 'none';
+        }, 5000);
+      }, 2000);
+    });
+
+    // Skill bar animations
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-bar');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const width = entry.target.style.width;
+            entry.target.style.width = '0%';
+            setTimeout(() => {
+              entry.target.style.width = width;
+            }, 100);
+          }
+        });
+      });
+      
+      skillBars.forEach(bar => observer.observe(bar));
+    }
+    
+    // Initialize skill bar animations
+    animateSkillBars();
+
+    // Header background on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.classList.add('bg-white/95');
+        header.classList.remove('bg-white/90');
+      } else {
+        header.classList.add('bg-white/90');
+        header.classList.remove('bg-white/95');
+      }
+    });
+  </script>
 </body>
 </html>
